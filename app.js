@@ -2,6 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var dotenv = require('dotenv').config()
 var logger = require('morgan');
 // Mongoose and schema
 var mongoose = require('mongoose');
@@ -11,6 +12,7 @@ var Movie = require('./models/movie');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var moviesRouter = require('./routes/movies');
 
 var app = express();
 
@@ -32,42 +34,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-//Set up default mongoose connection
-var mongoDB = "mongodb://localhost:27017/movies";
-mongoose.connect(mongoDB, {
-	useNewUrlParser: true
-});
-// Get Mongoose to use the global promise library
-mongoose.Promise = global.Promise;
-//Get the default connection
-var db = mongoose.connection;
+// LOCAL DB connection
+// var mongoDB = "mongodb://localhost:27017/movies";
 
-//Bind connection to error event (to get notification of connection errors)
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+// REMOTE (mLab) DB connection
 
 
-
-
-// Make two movies
-var movie1 = new Movie({
-	name: 'Alien',
-	releaseDate: 1979,
-	votes: 1
-});
-var movie2 = new Movie({
-	name: 'Jaws',
-	releaseDate: 1975,
-	votes: 0
-});
-
-movie1.save(function (err) {
-	if (err) throw err;
-	console.log('Movie 1 created!');
-});
-movie2.save(function (err) {
-	if (err) throw err;
-	console.log('Movie 2 created!');
-});
 
 
 
@@ -75,6 +47,7 @@ movie2.save(function (err) {
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/movies', moviesRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
