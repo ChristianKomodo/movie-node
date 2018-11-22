@@ -6,7 +6,9 @@
 Clone it, then get your dependencies with `npm install` like usual.
 
 Then create an `.env` file and populate it with your MongoDB connection string
-```DB_HOST="mongodb://<dbuser>:<dbpassword>@ds119650.mlab.com:19650/movie-node"````
+```
+DB_HOST="mongodb://<dbuser>:<dbpassword>@ds119650.mlab.com:19650/movie-node"
+````
 (Substitute your database username and password)
 
 The package `dotenv` has already been installed and will allow you to access that `.env` file.
