@@ -10,7 +10,7 @@ Then create an `.env` file and populate it with your MongoDB connection string
 #### Using a local Mongo database
 
 ```
-DB_HOST="localhost:27017/myDatabase";
+DB_HOST="localhost:27017/movie-node";
 ```
 
 #### Using mLab.com
