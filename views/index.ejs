@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+
+<head>
+  <title>Movie Collector</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>Movie Collector</h1>
+  <h3>Save movies you like, vote for others!</h3>
+
+  <p>You can't get more exciting than that. Ok let's get started. Add a movie!</p>
+
+  <form method="post" action="/movies">
+    <label>Enter Movie Details</label><br><br>
+    <input type="text" name="name" placeholder="Enter the Movie Title" required>
+    <input type="text" name="releaseDate" placeholder="Enter the Release Date" required>
+    <input type="submit" value="Add Movie">
+  </form>
+</body>
+
 </html>
