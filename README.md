@@ -5,7 +5,7 @@
 #### Installation
 Clone it, then get your dependencies with `npm install` like usual.
 
-Then create an `.env` file and populate it with your MongoDB connection string
+Then create an `.env` file and populate it with your MongoDB connection string in one of two ways:
 
 #### Using a local Mongo database
 
