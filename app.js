@@ -16,35 +16,16 @@ var moviesRouter = require('./routes/movies');
 
 var app = express();
 
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({
-	extended: false
-}));
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-
-
-
-
-
-// LOCAL DB connection
-// var mongoDB = "mongodb://localhost:27017/movies";
-
-// REMOTE (mLab) DB connection
-
-
-
-
-
-
-
+// Routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/movies', moviesRouter);
