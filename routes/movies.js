@@ -14,7 +14,7 @@ router.get('/', function (req, res, next) {
     .find()
     .sort('name')
     .then(movies => {
-      res.render('movies', { title: 'movie page', movies: movies });
+      res.render('movies', { title: 'movie page', movies });
     }).catch(err => {
       res.status(500).send({
         message: err.message || "Some error occurred while retrieving notes."
@@ -46,7 +46,7 @@ router.post('/', function (req, res, next) {
   // Save Movie in the database
   movie.save()
     .then(movies => {
-      res.status(200).redirect('movies');
+      res.status(200).redirect('/');
     }).catch(err => {
       res.status(500).send({
         message: err.message || "Some error occurred while creating the movie entry."
@@ -64,7 +64,7 @@ router.delete('/:id', function (req, res, next) {
   Movie.deleteOne({ _id: req.params.id })
     .then(() => {
       console.log('worked');
-      res.status(200).redirect('movies');
+      res.status(200).redirect('/');
     }).catch(err => {
       console.log('did not work');
       res.status(500).send({
