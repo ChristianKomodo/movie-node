@@ -25,3 +25,11 @@ The package `dotenv` has already been installed and will allow you to access tha
 
 #### Run the project
 Then start the server with `npm start`
+
+The main page will have a form to add your favorite movies, and also display all the added movies in the database so far.
+
+```localhost:3000```
+
+If this is your first time running the appliaction, you can add two entries into the database by hitting the following URL:
+
+```localhost:3000/movies/make```
